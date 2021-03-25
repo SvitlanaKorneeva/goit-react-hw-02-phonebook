@@ -14,12 +14,9 @@ state = {
   name: '',
     number: '',
 }
-  addContact = text => {
-    const con = this.state.contacts
-    
-    console.log(text)
+  addContact = newContact => {
     this.setState(prevState => ({
-      contacts: [con, ... prevState.contacts]
+      contacts: [newContact, ...prevState.contacts]
     }))
   }
   

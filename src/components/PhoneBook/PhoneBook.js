@@ -4,9 +4,7 @@ import { v4 as id } from "uuid";
 
 class PhoneBook extends Component {
   state = {
-    contacts: [
-    
-    ],
+    contacts: [],
     name: '',
     number: '',
   }
@@ -20,9 +18,11 @@ class PhoneBook extends Component {
     e.preventDefault();
     console.log(this.state)
 
-    this.props.onAddContact(this.state.name)
-    this.props.onAddContact(this.state.number)
+    const {name, number} = this.state;
+    this.props.onAddContact({name, number})
     this.setState({ name: '', number: '' });
+    // this.props.onAddContact(this.state.number)
+   
 
     // this.props.onAddContact({ ...this.state });
     // this.setState({ name: "", number: "" });

@@ -38,12 +38,13 @@ class App extends Component {
     const { filter } = this.state
 
     const visibleContacts = this.getVisibleContacts();
-    
+   
       return (
         
         <>
-          <PhoneBook onAddContact={this.addContact} visibleContacts={ visibleContacts}/>
-          <Filter value={filter} onChange={ this.changeFilter}/>
+          <PhoneBook contacts={visibleContacts}/>
+         
+          <Filter value={filter} onChange={ this.changeFilter} />
 </>
         
     );

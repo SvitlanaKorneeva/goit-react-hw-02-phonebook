@@ -33,11 +33,8 @@ class PhoneBook extends Component {
     const { name, number } = this.state;
     this.props.onAddContact({name, number})
     this.setState({ name: '', number: '' });
-    // // this.props.onAddContact(this.state.number)
     
-   
-   
-
+    // // this.props.onAddContact(this.state.number)
     // this.props.onAddContact({ ...this.state });
     // this.setState({ name: "", number: "" });
 

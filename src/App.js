@@ -15,9 +15,8 @@ class App extends Component {
     filter: '',
   }
   
-  addContact = () => {
-   const { name, number } = this.state;
-    const newContact = {genId, name, number}
+  addContact = ({ name, number }) => {
+    const newContact = {id: genId, name, number}
     this.setState(prevState => ({
       contacts: [newContact, ...prevState.contacts]
     }))

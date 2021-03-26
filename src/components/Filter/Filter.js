@@ -1,9 +1,10 @@
-import React from 'react'
+import React from 'react';
+import s from "./Filter.module.css"
 
 const Filter = ({ filter, changeFilter }) => (
 
     <div>
-        <label>
+        <label >
             Find contacts by name
         <input type="text"
                 value={filter}

@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 
 import "./App.css";
-import PhoneBook from "./components/PhoneBook/PhoneBook";
+import ContactForm from "./components/ContactForm/ContactForm";
 import Filter from "./components/Filter/Filter";
 import { v4 as genId } from "uuid";
+import ContactList from "./components/ContactList/ContactList";
 
 class App extends Component {
   state = {
@@ -35,17 +36,26 @@ class App extends Component {
     elem.name.toLowerCase().includes(normalizedFilter))
 
   }
+
+  deleteContact = contactId  => {
+  this.setState(prevState => ({
+    contacts: prevState.contacts.filter(({ id }) => id !==contactId )
+  }))
+  
+  }
   
   render() {
     const { filter } = this.state
     const visibleContacts = this.getVisibleContacts();
    
       return (
-        <>
-          <PhoneBook onAddContact={this.addContact} contacts={visibleContacts} />
-          <Filter filter={filter} changeFilter={ this.changeFilter} />
-</>
-        
+        <div>
+          <h1 className="title">Phonebook</h1>
+          <ContactForm onAddContact={this.addContact} contacts={visibleContacts} />
+          <h2 className="title">Contacts</h2>
+          <Filter filter={filter} changeFilter={this.changeFilter} />
+          <ContactList contacts={visibleContacts} onDeleteContact={this.deleteContact}/>
+        </div>
     );
   }
 }

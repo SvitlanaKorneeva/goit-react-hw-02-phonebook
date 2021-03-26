@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import s from "./PhoneBook.module.css";
+import s from "./ContactForm.module.css";
 import { v4 as genId } from "uuid";
 
-class PhoneBook extends Component {
+class ContactForm extends Component {
   state = {
     // contacts: [ {id: 'id-1', name: 'Rosie Simpson', number: '459-12-56'},
     // {id: 'id-2', name: 'Hermione Kline', number: '443-89-12'},
@@ -52,7 +52,7 @@ class PhoneBook extends Component {
     const {contacts} = this.props
     return (
       <>
-      <h2 className={s.title}>PhoneBook</h2>
+      {/* <h2>PhoneBook</h2> */}
 
       <div className={s.wrapper}>
          <form className={s.contactsForm} onSubmit ={this.handleSubmit}>
@@ -80,17 +80,17 @@ class PhoneBook extends Component {
         <button type="submit" className={s.btn} >Add contact</button>
             </form>
         </div>
-        <h2 className={s.title}>Contacts</h2>
-        <ul>
+        {/* <h2 className={s.title}>Contacts</h2> */}
+        {/* <ul>
           {contacts.map(({ genId, name, number }) => (
             <li key={genId}>
               <p>{name} : {number} </p>
             </li>
           ))}
-        </ul>
+        </ul> */}
 </>
     )
   }
 
 }
-export default PhoneBook;
+export default ContactForm;

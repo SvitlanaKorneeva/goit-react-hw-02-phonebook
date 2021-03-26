@@ -4,11 +4,11 @@ import { v4 as genId } from "uuid";
 
 class PhoneBook extends Component {
   state = {
-    contacts: [ {id: 'id-1', name: 'Rosie Simpson', number: '459-12-56'},
-    {id: 'id-2', name: 'Hermione Kline', number: '443-89-12'},
-    {id: 'id-3', name: 'Eden Clements', number: '645-17-79'},
-    {id: 'id-4', name: 'Annie Copeland', number: '227-91-26'},
-    ],
+    // contacts: [ {id: 'id-1', name: 'Rosie Simpson', number: '459-12-56'},
+    // {id: 'id-2', name: 'Hermione Kline', number: '443-89-12'},
+    // {id: 'id-3', name: 'Eden Clements', number: '645-17-79'},
+    // {id: 'id-4', name: 'Annie Copeland', number: '227-91-26'},
+    // ],
     name: '',
     number: '',
   }
@@ -22,17 +22,17 @@ class PhoneBook extends Component {
     e.preventDefault();
     console.log(this.state)
 
-    const { name, number } = this.state;
-    const newContact = {genId, name, number}
-    this.setState(prevState => ({
-      contacts: [newContact, ...prevState.contacts]
-    }))
-
-    this.setState({ name: '', number: '' });
-    
     // const { name, number } = this.state;
-    // this.props.onAddContact({name, number})
+    // const newContact = {genId, name, number}
+    // this.setState(prevState => ({
+    //   contacts: [newContact, ...prevState.contacts]
+    // }))
+
     // this.setState({ name: '', number: '' });
+    
+    const { name, number } = this.state;
+    this.props.onAddContact({name, number})
+    this.setState({ name: '', number: '' });
     // // this.props.onAddContact(this.state.number)
     
    
@@ -52,7 +52,7 @@ class PhoneBook extends Component {
 //     this.setState({number: event.currentTarget.value})
 // }
   render() {
-    const {contacts} = this.state
+    const {contacts} = this.props
     return (
       <>
       <h2 className={s.title}>PhoneBook</h2>
@@ -85,8 +85,8 @@ class PhoneBook extends Component {
         </div>
         <h2 className={s.title}>Contacts</h2>
         <ul>
-          {contacts.map(({ id, name, number }) => (
-            <li key={id}>
+          {contacts.map(({ genId, name, number }) => (
+            <li key={genId}>
               <p>{name} : {number} </p>
             </li>
           ))}

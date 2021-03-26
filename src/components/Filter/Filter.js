@@ -1,13 +1,14 @@
 import React from 'react'
 
-const Filter = ({ value, onChange }) => (
+const Filter = ({ filter, changeFilter }) => (
 
     <div>
         <label>
             Find contacts by name
         <input type="text"
-                value={value}
-                onChange={onChange} />
+                value={filter}
+                name="filter"
+                onChange={changeFilter} />
         </label>
     </div>
 );

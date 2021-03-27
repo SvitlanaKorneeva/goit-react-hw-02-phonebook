@@ -17,12 +17,17 @@ class App extends Component {
   }
   
   addContact = ({ name, number }) => {
-    const newContact = {id: genId, name, number}
+    const newContact = { id: genId, name, number }
+    const contacts = this.state.contacts
+    if (contacts.some(el => el.name.toLowerCase() === name.toLowerCase()))
+    { return (alert(`${name} is already in contacts`)) }
+    
     this.setState(prevState => ({
       contacts: [newContact, ...prevState.contacts]
     }))
-  
-}
+    
+  }
+
   changeFilter = e => {
     this.setState({ filter: e.target.value })
     

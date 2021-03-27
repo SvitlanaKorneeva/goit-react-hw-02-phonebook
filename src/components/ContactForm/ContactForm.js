@@ -49,7 +49,6 @@ class ContactForm extends Component {
 //     this.setState({number: event.currentTarget.value})
 // }
   render() {
-    const {contacts} = this.props
     return (
       <>
       {/* <h2>PhoneBook</h2> */}
